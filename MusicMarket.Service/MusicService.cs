@@ -44,11 +44,11 @@ namespace MusicMarket.Service
             return await _unitOfWork.Musics.GetAllWithArtisyByArtistIdAsync(artistId);
         }
 
-        public async Task UpdateMusic(Music musicToBeUpdated, Music music)
+        public async Task UpdateMusic(Music musicToBeUpdated, Music newMusic)
         {
-            musicToBeUpdated.Artist = music.Artist;
-            musicToBeUpdated.ArtistId = music.Artist.Id;
-            musicToBeUpdated.Name= music.Name;
+            musicToBeUpdated.Artist = newMusic.Artist;
+            musicToBeUpdated.ArtistId = newMusic.ArtistId;
+            musicToBeUpdated.Name= newMusic.Name;
 
             await _unitOfWork.CommitAsync();
         }

@@ -12,7 +12,7 @@ namespace MusicMarket.Core.Services
         Task<IEnumerable<Artist>> GetAllArtist();
         Task<Artist> GetArtistById(int id);
         Task<Artist> CreateArtist(Artist artist);
-        Task UpdateArtist(Artist artistToBeUpdated, Artist artist);
+        Task UpdateArtist(int artistToBeUpdatedId, Artist artist);
         Task DeleteArtist(Artist artistToBeDeleted);
     }
 }

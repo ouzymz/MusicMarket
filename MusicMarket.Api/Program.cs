@@ -4,10 +4,12 @@ using MusicMarket.Core.Services;
 using MusicMarket.Data;
 using MusicMarket.Service;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddDbContext<MusicMarketDbContext>(opt=>opt.UseSqlServer(builder.Configuration.GetConnectionString("oguzhanMSSQL"),x=>x.MigrationsAssembly("MusicMarket.Data")));
+
 
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>(); //AddScoped: her oturum icin yeni bir intance alacak
@@ -21,6 +23,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
